@@ -1,0 +1,7 @@
+#idea
+.settings
+
+#other
+.classpath
+.project
+build.fxbuild
