@@ -25,6 +25,7 @@ public class Gui extends Application {
 	private Circle cell = new Circle();
 	private Circle defective_cell = new Circle();
 	private Circle cancer = new Circle();
+	private Circle death_cell = new Circle();
 	
 	Random rand= new Random();
 	
@@ -71,6 +72,11 @@ public class Gui extends Application {
 		cancer.setCenterX(50);
 		cancer.setCenterY(35);
 		cancer.setRadius(5);
+		
+		death_cell.setFill(Color.PURPLE);
+		death_cell.setCenterX(50);
+		death_cell.setCenterY(50);
+		death_cell.setRadius(5);
 		
 		Text title = new Text();
 		title.setText("cancer simulator");
@@ -154,6 +160,13 @@ public class Gui extends Application {
 		text_cancer_cell.setY(37);
 		text_cancer_cell.setFont(Font.font("verdana", 10));
 		text_cancer_cell.setFill(Color.WHITE);
+		
+		Text text_death_cell = new Text();
+		text_death_cell.setText("= death cell");
+		text_death_cell.setX(60);
+		text_death_cell.setY(53);
+		text_death_cell.setFont(Font.font("verdana", 10));
+		text_death_cell.setFill(Color.WHITE);
 		/*
 		if (circle.getFill() == cell.getFill()) {
 			System.out.println("cell");
@@ -165,9 +178,9 @@ public class Gui extends Application {
 		a reffaire dans le turfut quand tout cessara prêt
 		*/
 		
-		gui.getChildren().add(main_Thread.update());
+		//gui.getChildren().add(main_Thread.update());
 		
-		gui.getChildren().addAll(title, cell, text_cell, defective_cell, text_defective_cell,cancer, text_cancer_cell, start_button, stop_button);
+		gui.getChildren().addAll(title, cell, text_cell, defective_cell, text_defective_cell, cancer, text_cancer_cell, death_cell, text_death_cell, start_button, stop_button);
 		stage.setScene(scene);
 		stage.show();
 	}
