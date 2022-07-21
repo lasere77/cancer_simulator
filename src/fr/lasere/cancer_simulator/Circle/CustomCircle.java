@@ -8,10 +8,10 @@ import javafx.scene.shape.Circle;
 
 public class CustomCircle {
 
-	double width = 1025;
-	double height = 650;
+	private final double width = 1025;
+	private final double height = 650;
 	
-	Random rand = new Random();
+	private Random rand = new Random();
 	
 	public Circle propertyCell(Circle cell, double X, double Y) {
 		int random = rand.nextInt((15 - 7) + 7) + 7;
@@ -28,7 +28,7 @@ public class CustomCircle {
 
         Circle cell1 = new Circle();
         cell1 = propertyCell(cell1, width-20, height);
-
+        
         Circle cell2 = new Circle();
         cell2 = propertyCell(cell2, width-40, height);
 

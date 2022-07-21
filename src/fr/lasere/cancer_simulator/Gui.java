@@ -22,12 +22,12 @@ import javafx.stage.Stage;
 public class Gui extends Application {	
 	//simulator
 	private CustomCircle cells = new CustomCircle();
-	private Circle cell = new Circle();
-	private Circle defective_cell = new Circle();
-	private Circle cancer = new Circle();
-	private Circle death_cell = new Circle();
+	private Circle ref_cell = new Circle();
+	private Circle ref_defective_cell = new Circle();
+	private Circle ref_cancer = new Circle();
+	private Circle ref_death_cell = new Circle();
 	
-	Random rand= new Random();
+	private Random rand= new Random();
 	
 	//prog
 	private double width = 1080;
@@ -58,25 +58,25 @@ public class Gui extends Application {
 		stage.getIcons().add(icon);
 		stage.setTitle("cancer simulator");
 		
-		cell.setFill(Color.LIME);
-		cell.setCenterX(50);
-		cell.setCenterY(5);
-		cell.setRadius(5);
+		ref_cell.setFill(Color.LIME);
+		ref_cell.setCenterX(50);
+		ref_cell.setCenterY(5);
+		ref_cell.setRadius(5);
 		
-		defective_cell.setFill(Color.ORANGE);
-		defective_cell.setCenterX(50);
-		defective_cell.setCenterY(20);
-		defective_cell.setRadius(5);
+		ref_defective_cell.setFill(Color.ORANGE);
+		ref_defective_cell.setCenterX(50);
+		ref_defective_cell.setCenterY(20);
+		ref_defective_cell.setRadius(5);
 		
-		cancer.setFill(Color.RED);
-		cancer.setCenterX(50);
-		cancer.setCenterY(35);
-		cancer.setRadius(5);
+		ref_cancer.setFill(Color.RED);
+		ref_cancer.setCenterX(50);
+		ref_cancer.setCenterY(35);
+		ref_cancer.setRadius(5);
 		
-		death_cell.setFill(Color.PURPLE);
-		death_cell.setCenterX(50);
-		death_cell.setCenterY(50);
-		death_cell.setRadius(5);
+		ref_death_cell.setFill(Color.PURPLE);
+		ref_death_cell.setCenterX(50);
+		ref_death_cell.setCenterY(50);
+		ref_death_cell.setRadius(5);
 		
 		Text title = new Text();
 		title.setText("cancer simulator");
@@ -167,6 +167,14 @@ public class Gui extends Application {
 		text_death_cell.setY(53);
 		text_death_cell.setFont(Font.font("verdana", 10));
 		text_death_cell.setFill(Color.WHITE);
+		
+		Text scale = new Text();
+		scale.setText("1 second = 1 year");
+		scale.setX(width / 2 + 430);
+		scale.setY(10);
+		scale.setFont(Font.font("verdana", 10));
+		scale.setFill(Color.WHITE);
+		
 		/*
 		if (circle.getFill() == cell.getFill()) {
 			System.out.println("cell");
@@ -180,7 +188,7 @@ public class Gui extends Application {
 		
 		//gui.getChildren().add(main_Thread.update());
 		
-		gui.getChildren().addAll(title, cell, text_cell, defective_cell, text_defective_cell, cancer, text_cancer_cell, death_cell, text_death_cell, start_button, stop_button);
+		gui.getChildren().addAll(title, ref_cell, text_cell, ref_defective_cell, text_defective_cell, ref_cancer, text_cancer_cell, ref_death_cell, text_death_cell, scale,start_button, stop_button);
 		stage.setScene(scene);
 		stage.show();
 	}

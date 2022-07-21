@@ -2,6 +2,7 @@ package fr.lasere.cancer_simulator.Thread;
 
 import java.util.Random;
 
+import fr.lasere.cancer_simulator.Reference;
 import fr.lasere.cancer_simulator.Circle.CustomCircle;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -12,6 +13,7 @@ public class MainThread extends Thread{
 	
 	private double width = 1080;
 	TimeThread time = new TimeThread();
+	Reference reference = new Reference();
 	CustomCircle cells = new CustomCircle();
 	Random rand = new Random();
 	int random_cell = rand.nextInt(cells.init_bottom_cells().length);
@@ -20,7 +22,7 @@ public class MainThread extends Thread{
 	
 	double random = rand.nextDouble(101);
 	
-	//simulator 
+	//simulator
 	private int age = 0;
 	private final int death = 70; //average life span in the world
 	private int set_probability = 0;
@@ -90,8 +92,8 @@ public class MainThread extends Thread{
 			
 			if(probability >= random) {
 				System.out.println("want character has a new cancer cell");
-				update();
-			}
+				System.out.println(setDefectiveCell()); 
+				}
 			
 			
 			if(probability > max_probability) {
@@ -106,11 +108,16 @@ public class MainThread extends Thread{
 		}
 	}
 	
-	public Circle update() {
+	public Circle setDefectiveCell() {
 		Circle cell = cells.init_bottom_cells()[random_cell];
-		cell.setFill(Color.ORANGE);
-		return cell;
-	}
+		System.out.println(cell.getFill());
+		System.out.println(reference.ref_cell.getFill());
+		/*if(cell.getFill() == reference.ref_cell.getFill()) {
+			cell.setFill(Color.ORANGE);
+			return cell;
+		}*/
+		return null;
+	}	
 	
 	public Text end() {
 		Text end = new Text();
