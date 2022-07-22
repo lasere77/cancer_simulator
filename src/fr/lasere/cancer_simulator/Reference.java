@@ -12,23 +12,15 @@ public class Reference {
 	
 	public void reference() {
 		ref_cell.setFill(Color.LIME);
-		ref_cell.setCenterX(50);
-		ref_cell.setCenterY(5);
 		ref_cell.setRadius(5);
 		
 		ref_defective_cell.setFill(Color.ORANGE);
-		ref_defective_cell.setCenterX(50);
-		ref_defective_cell.setCenterY(20);
 		ref_defective_cell.setRadius(5);
 		
 		ref_cancer.setFill(Color.RED);
-		ref_cancer.setCenterX(50);
-		ref_cancer.setCenterY(35);
 		ref_cancer.setRadius(5);
 		
 		ref_death_cell.setFill(Color.PURPLE);
-		ref_death_cell.setCenterX(50);
-		ref_death_cell.setCenterY(50);
 		ref_death_cell.setRadius(5);
 	}
 }

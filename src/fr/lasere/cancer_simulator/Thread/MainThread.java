@@ -19,13 +19,14 @@ public class MainThread extends Thread{
 	int random_cell = rand.nextInt(cells.init_bottom_cells().length);
 	private boolean running = true;
 	
+	public boolean test = false;
 	
 	double random = rand.nextDouble(101);
 	
 	//simulator
 	private int age = 0;
 	private final int death = 70; //average life span in the world
-	private int set_probability = 0;
+	private int set_propertys = 0;
 	
 	//property
 	private final boolean smoke = true;
@@ -36,8 +37,7 @@ public class MainThread extends Thread{
 	@SuppressWarnings("unused")
 	private final boolean cytokine = true;
 	private final boolean g_p53 = rand.nextBoolean();//14%
-	
-	private double probability = 0;
+	private double probability = 50;
 	private final double max_probability = 100;
 	
 	public Text text_death = new Text();
@@ -51,7 +51,7 @@ public class MainThread extends Thread{
 				text_death.setText("death of your person");
 				running = false;
 			}
-			if(set_probability == 0) {
+			if(set_propertys == 0) {
 				if(smoke) {
 					double probability_smoke = rand.nextDouble(27);
 					//System.out.println(probability_smoke);
@@ -78,7 +78,7 @@ public class MainThread extends Thread{
 					probability += 50;
 					System.out.println("you have matation of the p53 gene");
 				}
-				set_probability++;
+				set_propertys++;
 				System.out.println(probability);
 			}
 			if(age == 55) {
@@ -92,7 +92,7 @@ public class MainThread extends Thread{
 			
 			if(probability >= random) {
 				System.out.println("want character has a new cancer cell");
-				System.out.println(setDefectiveCell()); 
+				setDefectiveCell();
 				}
 			
 			
@@ -110,14 +110,31 @@ public class MainThread extends Thread{
 	
 	public Circle setDefectiveCell() {
 		Circle cell = cells.init_bottom_cells()[random_cell];
-		System.out.println(cell.getFill());
-		System.out.println(reference.ref_cell.getFill());
-		/*if(cell.getFill() == reference.ref_cell.getFill()) {
+		if(cell.getFill() == Color.LIME) {
+			test = true;
 			cell.setFill(Color.ORANGE);
 			return cell;
-		}*/
+		}
 		return null;
 	}	
+	
+	public Circle setCancer() {
+		Circle cell = cells.init_bottom_cells()[random_cell];
+		if(cell.getFill() == Color.RED) {
+			cell.setFill(Color.ORANGE);
+			return cell;
+		}
+		return null;
+	}
+	
+	public Circle setDeathCell() {
+		Circle cell = cells.init_bottom_cells()[random_cell];
+		if(cell.getFill() == Color.ORANGE) {
+			cell.setFill(Color.PURPLE);
+			return cell;
+		}
+		return null;
+	}
 	
 	public Text end() {
 		Text end = new Text();

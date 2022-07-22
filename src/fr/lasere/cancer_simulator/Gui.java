@@ -1,6 +1,5 @@
 package fr.lasere.cancer_simulator;
 
-import java.util.Random;
 
 import fr.lasere.cancer_simulator.Circle.CustomCircle;
 import fr.lasere.cancer_simulator.Thread.MainThread;
@@ -26,12 +25,10 @@ public class Gui extends Application {
 	private Circle ref_defective_cell = new Circle();
 	private Circle ref_cancer = new Circle();
 	private Circle ref_death_cell = new Circle();
-	
-	private Random rand= new Random();
-	
+		
 	//prog
-	private double width = 1080;
-	private double height = 720;
+	private final double width = 1080;
+	private final double height = 720;
 	private boolean running;
 	@SuppressWarnings("unused")
 	private boolean his_stoped = false;
@@ -186,7 +183,9 @@ public class Gui extends Application {
 		a reffaire dans le turfut quand tout cessara prêt
 		*/
 		
-		//gui.getChildren().add(main_Thread.update());
+		if(!main_Thread.test) {
+			gui.getChildren().add(main_Thread.setDefectiveCell());
+		}
 		
 		gui.getChildren().addAll(title, ref_cell, text_cell, ref_defective_cell, text_defective_cell, ref_cancer, text_cancer_cell, ref_death_cell, text_death_cell, scale,start_button, stop_button);
 		stage.setScene(scene);
